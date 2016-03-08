@@ -19,11 +19,11 @@ class App extends Component {
     return (
       <div>
         <Dropzone onDrop={this.handleOnDrop} accept="image/*">
-          <div>ここにファイルをドラックまたはクリックしてファイルを選んでください。</div>
+          <div>ここにファイルをドラックまたはクリックしてファイルを選んでください</div>
         </Dropzone>
         {this.state.files.length > 0 ?
           <div>
-            <h2>{this.state.files.length} をアップロードしています。</h2>
+            <h2>{this.state.files.length}件のファイルをアップロードしています</h2>
             <div>
               {this.state.files.map(({name, preview}) =>
                 <img key={name} src={preview} style={{width: '200px', height: '200px'}}/>)}
