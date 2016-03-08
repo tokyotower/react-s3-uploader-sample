@@ -1,9 +1,48 @@
 'use strict';
-const axios = require('axios');
-const fileInput = document.querySelector('input[type="file"]');
+import React, {Component} from 'react';
+import {render} from 'react-dom';
+import Dropzone from 'react-dropzone';
 
-fileInput.onchange = e => {
-  const file = e.target.files[0];
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {files: []};
+    this.handleOnDrop = this.handleOnDrop.bind(this);
+  }
+
+  handleOnDrop(files) {
+    this.setState({files});
+    upload(files);
+  }
+
+  render() {
+    return (
+      <div>
+        <Dropzone onDrop={this.handleOnDrop} accept="image/*">
+          <div>ここにファイルをドラックまたはクリックしてファイルを選んでください。</div>
+        </Dropzone>
+        {this.state.files.length > 0 ?
+          <div>
+            <h2>{this.state.files.length} をアップロードしています。</h2>
+            <div>
+              {this.state.files.map(({name, preview}) =>
+                <img key={name} src={preview} style={{width: '200px', height: '200px'}}/>)}
+            </div>
+          </div> : null}
+      </div>
+    );
+  }
+}
+
+render(
+  <App/>,
+  document.querySelector('#main')
+);
+
+const axios = require('axios');
+
+function upload(files) {
+  const file = files[0];
   axios.get('/upload', {
     params: {
       filename: file.name,
@@ -21,4 +60,4 @@ fileInput.onchange = e => {
   }).catch(res => {
     console.log(res);
   });
-};
+}
