@@ -49,14 +49,41 @@ class App extends Component {
   }
 
   render() {
+    const divStyle = {
+      width: 400,
+      height: 200,
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      borderWidth: 2,
+      borderColor: '#666',
+      borderStyle: 'solid',
+      borderRadius: 5
+    };
+
+    const activeStyle = {
+      opacity: 0.5,
+      backgroundColor: '#eee'
+    };
+
+    const rejectStyle = {
+      backgroundColor: '#ffdddd'
+    };
+
     return (
-      <div style={{width: 960, margin: '20px auto'}}>
-        <h1>React S3 Image Uploader</h1>
-        <Dropzone onDrop={this.handleOnDrop} accept="image/*">
-          <div>画像をドラックまたはクリック</div>
+      <div style={{width: 760, margin: '30px auto'}}>
+        <h1>React S3 Image Uploader Sample</h1>
+        <Dropzone
+          onDrop={this.handleOnDrop}
+          accept="image/*"
+          style={divStyle}
+          activeStyle={activeStyle}
+          rejectStyle={rejectStyle}
+          >
+        {this.state.isUploading ?
+          <div>ファイルをアップロードしています</div> :
+          <div>ここに画像をドラックまたはクリック</div>}
         </Dropzone>
-        {this.state.isUploading &&
-          <h2>ファイルをアップロードしています</h2>}
         {this.state.images.length > 0 &&
           <div style={{margin: 30}}>
             {this.state.images.map(({name, url}) =>
