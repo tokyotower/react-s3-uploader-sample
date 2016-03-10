@@ -1,4 +1,3 @@
-'use strict';
 import React, {Component} from 'react';
 import {render} from 'react-dom';
 import Dropzone from 'react-dropzone';
@@ -46,8 +45,6 @@ class App extends Component {
         isUploading: true,
         url: `https://akameco-images.s3.amazonaws.com/${file.name}`
       };
-    }).catch(res => {
-      console.log(res);
     });
   }
 
