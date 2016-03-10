@@ -53,7 +53,7 @@ class App extends Component {
 
   render() {
     return (
-      <div style={{width: '960px', margin: '20px auto'}}>
+      <div style={{width: 960, margin: '20px auto'}}>
         <h1>React S3 Image Uploader</h1>
         <Dropzone onDrop={this.handleOnDrop} accept="image/*">
           <div>画像をドラックまたはクリック</div>
@@ -61,9 +61,9 @@ class App extends Component {
         {this.state.isUploading &&
           <h2>ファイルをアップロードしています</h2>}
         {this.state.images.length > 0 &&
-          <div style={{margin: '30px'}}>
+          <div style={{margin: 30}}>
             {this.state.images.map(({name, url}) =>
-              <img key={name} src={url} style={{width: '200px', height: '200px'}}/>)}
+              <img key={name} src={url} style={{width: 200, height: 200}}/>)}
           </div>}
       </div>
     );
