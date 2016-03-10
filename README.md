@@ -1,6 +1,10 @@
 # react-s3-uploader-sample
 
-> react + s3 + axios sample app
+> react + aws s3 + axios + drag&drop
+
+## Screenshots
+
+# ![dakunesu](media/screen.gif)
 
 ## Installation
 
