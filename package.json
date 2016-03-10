@@ -1,5 +1,5 @@
 {
-  "name": "react-s3-image-drop-upload",
+  "name": "react-s3-image-uploader",
   "version": "0.0.1",
   "description": "react + s3 + axios sample app",
   "main": "index.js",
