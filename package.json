@@ -10,7 +10,7 @@
     "watch": "watchify -t babelify index.js -o public/bundle.js -d",
     "test": "xo"
   },
-  "author": "akameco <akameco.t@gmail.com>",
+  "author": "harukibun <harukibun@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "aws-sdk": "^2.2.47",
